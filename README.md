@@ -1,5 +1,9 @@
 # PseudoBend
 
+PseudoBend paper is available at here: https://dl.acm.org/citation.cfm?id=3347941
+
+See Video Preview: https://www.youtube.com/watch?v=w7GSAcuDjo4&feature=youtu.be
+
 PseudoBend is a haptic feedback technique that uses grain vibrations to create illusions of stretching, bending, and twisting on a rigid device. Details of PseudoBend will be publised as a paper at ACM UIST 2019.
 
 This repository contains resources required to replicate PseudoBend, including 3D models to print handles, schematic and firmware for signal generation circuit, and PseudoBend software.  
