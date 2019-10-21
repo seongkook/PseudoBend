@@ -1,0 +1,58 @@
+﻿<Window x:Class="ForceReaderStudy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ForceReaderStudy"
+        mc:Ignorable="d"
+        Title="Illusion Driver" Height="304.342" Width="594" Loaded="Window_Loaded">
+    <Grid>
+        <GroupBox Header="Sensor" HorizontalAlignment="Left" Height="173" Margin="10,10,0,0" VerticalAlignment="Top" Width="292">
+            <Canvas>
+                <Button Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Canvas.Left="23" Canvas.Top="22" Height="37"/>
+                <Button x:Name="stopButton"  Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="stopButton_Click" Canvas.Left="103" Canvas.Top="22" Height="37"/>
+                <Button x:Name="calButton"  Content="Calibrate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="calButton_Click" Canvas.Left="183" Canvas.Top="22" Height="37"/>
+                <TextBox x:Name="f1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" MaxLines="100" VerticalAlignment="Top" Width="53" Canvas.Left="45" Canvas.Top="72"/>
+                <TextBox x:Name="f2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" MaxLines="100" VerticalAlignment="Top" Width="52" Canvas.Left="126" Canvas.Top="72"/>
+                <TextBox x:Name="f3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" MaxLines="100" VerticalAlignment="Top" Width="53" Canvas.Left="205" Canvas.Top="72"/>
+                <TextBox x:Name="t1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" MaxLines="100" VerticalAlignment="Top" Width="53" Canvas.Left="45" Canvas.Top="102"/>
+                <TextBox x:Name="t2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" MaxLines="100" VerticalAlignment="Top" Width="52" Canvas.Left="126" Canvas.Top="102"/>
+                <TextBox x:Name="t3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" MaxLines="100" VerticalAlignment="Top" Width="53" Canvas.Left="205" Canvas.Top="102"/>
+                <Label Content="Fx" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="69"/>
+                <Label Content="Fy" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="105" Canvas.Top="69"/>
+                <Label Content="Fz" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="184" Canvas.Top="69"/>
+                <Label Content="Tx" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="100"/>
+                <Label Content="Ty" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="105" Canvas.Top="100"/>
+                <Label Content="Tz" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="184" Canvas.Top="100"/>
+                <Label x:Name="fpsBox" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="126" Canvas.Top="131"/>
+                <Label Content="FPS:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="89" Canvas.Top="131"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="Actuator" HorizontalAlignment="Left" Height="70" Margin="10,188,0,0" VerticalAlignment="Top" Width="292">
+            <Canvas>
+                <Label Content="Serial Port" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="13"/>
+                <TextBox x:Name="portBox" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="COM3" MaxLines="100" VerticalAlignment="Top" Width="77" Canvas.Left="79" Canvas.Top="14"/>
+                <Button x:Name="serialButton"  Content="Open" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="serialBtn_Click" Canvas.Left="176" Canvas.Top="16"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="Feedback" HorizontalAlignment="Left" Height="196" Margin="307,10,0,0" VerticalAlignment="Top" Width="256">
+            <Canvas>
+                <TextBox x:Name="stretchThreshBox" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="1.0" MaxLines="100" VerticalAlignment="Top" Width="50" Canvas.Left="72" Canvas.Top="58"/>
+                <TextBox x:Name="bendThreshBox" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="0.05" MaxLines="100" VerticalAlignment="Top" Width="50" Canvas.Left="127" Canvas.Top="58"/>
+                <TextBox x:Name="twistThreshBox" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="0.05" MaxLines="100" VerticalAlignment="Top" Width="50" Canvas.Left="182" Canvas.Top="58"/>
+                <Button x:Name="setButton"  Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="222" Click="setButton_Click" Height="48" Canvas.Left="10" Canvas.Top="119"/>
+                <CheckBox x:Name="sendCheck" Content="Freeze" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="sendCheck_Checked" Unchecked="sendCheck_Unchecked" Canvas.Left="174" Canvas.Top="14"/>
+                <CheckBox x:Name="stretchCheck" Content="Stretch" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True" Checked="paramCheckChanged" Unchecked="paramCheckChanged" Canvas.Left="65" Canvas.Top="38"/>
+                <CheckBox x:Name="bendCheck" Content="Bend" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="paramCheckChanged" Unchecked="paramCheckChanged" Canvas.Left="128" Canvas.Top="38"/>
+                <CheckBox x:Name="twistCheck" Content="Twist" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="paramCheckChanged" Unchecked="paramCheckChanged" Canvas.Left="182" Canvas.Top="38"/>
+                <TextBox x:Name="bendLimitBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="2.5" MaxLines="100" VerticalAlignment="Top" Width="50" Canvas.Left="127" Canvas.Top="89"/>
+                <TextBox x:Name="stretchLimitBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="2.5" MaxLines="100" VerticalAlignment="Top" Width="50" Canvas.Left="72" Canvas.Top="89"/>
+                <TextBox x:Name="twistLimitBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="2.5" MaxLines="100" VerticalAlignment="Top" Width="50" Canvas.Left="182" Canvas.Top="89"/>
+                <Label Content="Check to Enable" Canvas.Left="8" Canvas.Top="8"/>
+                <Label Content="Threshold" Canvas.Top="57" Canvas.Left="5"/>
+                <Label Content="Max Travel" Canvas.Top="88" Canvas.Left="5"/>
+
+            </Canvas>
+        </GroupBox>
+    </Grid>
+</Window>
